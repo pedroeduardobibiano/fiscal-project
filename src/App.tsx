@@ -1,4 +1,5 @@
 import '../src/App.css';
+import Form from './components/form';
 import Header from './components/header';
 import Title from './components/Title';
 import { Invoice } from './types/invoice';
@@ -7,6 +8,7 @@ const App = () => {
   const setInvoiceNumber = (invoiceNumber: string) => {
     invoice.invoiceNumber = invoiceNumber;
   };
+
 
   const invoice: Invoice = {
     tax: 13,
@@ -38,6 +40,7 @@ const App = () => {
     <div className="main-content">
       <Header />
       <Title invoice={invoice} setInvoiceNumber={setInvoiceNumber} />
+      <Form invoice={invoice} setInvoiceNumber={setInvoiceNumber}/>
     </div>
   );
 };

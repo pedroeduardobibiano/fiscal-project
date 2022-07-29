@@ -1,0 +1,15 @@
+.main-forms {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 25px 0px 25px;
+}
+
+.left-side-forms-input {
+  display: flex;
+  flex-direction: column;
+}
+.right-side-forms-input {
+  display: flex;
+  flex-direction: column;
+}
+
