@@ -2,13 +2,21 @@ import './style.css';
 import { useState } from 'react';
 
 import metawareLogo from '../../assets/metaware_logo.png';
+import { Invoice } from '../../types/invoice';
 
-const Title = () => {
+type Props = {
+  invoice: Invoice;
+  setInvoiceNumber: (invoiceNumber: string) => void;
+};
+
+const Title = (props: Props) => {
   const [fileImage, setFileImage] = useState<string>(metawareLogo);
 
   const [isImageHidden, setIsImageHidden] = useState<boolean>(false);
 
-  const [invoiceText, setInvoiceText] = useState<string>('10');
+  const [invoiceText, setInvoiceText] = useState<string>(
+    props.invoice.invoiceNumber
+  );
 
   const imageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
@@ -19,6 +27,7 @@ const Title = () => {
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInvoiceText(event.target.value);
+    props.setInvoiceNumber(invoiceText);
   };
 
   return (
