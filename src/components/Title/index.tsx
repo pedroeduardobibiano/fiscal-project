@@ -1,79 +1,71 @@
 import './style.css';
-import React, { Component } from 'react';
+import { useState } from 'react';
 
+import metawareLogo from '../../assets/metaware_logo.png';
 
-/*const Show =()=>{
-    const[show, setShow] = useState(true)
+const Title = () => {
+  const [fileImage, setFileImage] = useState<string>(metawareLogo);
 
-    return(
-        <div className='oi'>
-            {
-                show? <div className='page'>
-                    <div>aa</div>
-                </div>:null
-            }
-            <button type="button" onClick={()=>setShow(!show)}>
-                {show ? 'Hide' : 'Show'}
-            </button>
-            
-        </div>
-    )
-}*/
+  const [isImageHidden, setIsImageHidden] = useState<boolean>(false);
 
+  const [invoiceText, setInvoiceText] = useState<string>('10');
 
-export class Title extends Component {
-
-    handleEvent = ($event: any) =>{
-        alert("clicou")
+  const imageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement;
+    if (target.files instanceof FileList) {
+      setFileImage(URL.createObjectURL(target.files[0]));
     }
-
-
-  state = {
-    profileImg:
-      'https://pixabay.com/vectors/blank-profile-picture-mystery-man-973460/',
   };
 
-  imageHandler = ($e: any) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        this.setState({ profileImg: reader.result });
-      }
-    };
-
-    reader.readAsDataURL($e.target.files[0]);
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInvoiceText(event.target.value);
   };
 
-
-  render(): React.ReactNode {
-    const { profileImg } = this.state;
-
-
-
-    return (
-      <div className="page">
-        <div className="container">
-          <h1 className="heading">Add you image</h1>
-          <div className="img-holder"></div>
-          <img src={profileImg} alt="" id="img" className="img" />
+  return (
+    <div className="page">
+      <div className="container">
+        <div className="left-side">
+          <div>Invoice #</div>
+          <div className="left-input">
+            <input
+              onChange={onInputChange}
+              value={invoiceText}
+              type="text"
+              name="invoice-input"
+              id="invoice-input"
+            />
+          </div>
         </div>
-        <button onClick={() => {}}></button>
-        <input
-          type="file"
-          name="image-upload"
-          id="input"
-          accept="image/*"
-          onChange={this.imageHandler}
-        />
-        <div className="input-title">
-          <label htmlFor="input" className="image-upload">
-            Choose your photo
-          </label>
-          <button >esconder imagem</button>
-        </div>
+        {!isImageHidden && (
+          <img src={fileImage} alt="" id="img" className="img" />
+        )}
       </div>
-    );
-  }
-}
+
+      <div className="arquivos">
+        <div className="enviar-arquivo">
+          <label className="click-action" htmlFor="arquivo">
+            Edit Logo
+          </label>
+          <input
+            type="file"
+            name="arquivo"
+            id="arquivo"
+            accept="image/*"
+            onChange={imageHandler}
+          />
+        </div>
+
+        <span
+          className="click-action"
+          onClick={(e) => {
+            setIsImageHidden(!isImageHidden);
+          }}
+        >
+          Hide Logo
+        </span>
+      </div>
+    </div>
+  );
+};
 
 export default Title;
