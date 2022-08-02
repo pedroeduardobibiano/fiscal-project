@@ -1,6 +1,7 @@
 import '../src/App.css';
 import Form from './components/form';
 import Header from './components/header';
+import MethodTitle from './components/methodtitle';
 import Title from './components/Title';
 import { Invoice } from './types/invoice';
 
@@ -97,6 +98,7 @@ const App = () => {
         setChosseSecondAddressCompany={setChosseSecondAddressCompany}
         setChossePostalCodeCompany={setChossePostalCodeCompany}
       />
+      <MethodTitle/>
     </div>
   );
 };
