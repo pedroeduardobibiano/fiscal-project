@@ -1,9 +1,10 @@
-.Table-content {
+.Table-content-title {
   display: flex;
   flex-direction: row;
   font-weight: bold;
   padding-top: 15px;
   font-size: 18.1px;
+  margin-bottom: 15px;
 }
 
 .Table-null {
@@ -21,4 +22,75 @@
 .Table-total {
   width: 16.666666666666664%;
   text-align: end;
+  padding-right: 20px;
 }
+
+.Table-content-content {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  font-size: 18.1px;
+  background-color: #f9f9f9;
+  align-items: center;
+  padding: 8px 0px 8px 0px;
+  border-top: solid 1px rgb(223, 223, 223);
+}
+
+.input-Table-content {
+  width: 8vh;
+  
+}
+
+.Table-link {
+  width: 8.333333333333332%;
+  display: flex;
+  justify-content: center;
+}
+
+.link-red {
+  text-decoration: none;
+  width: 50px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: normal;
+  background-color: #d9534f;
+  border-radius: 4px;
+}
+
+.link-blue {
+  text-decoration: none;
+  width: 50px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: normal;
+  background-color: #428bca;
+  border-radius: 4px;
+  padding-top: 9px;
+}
+
+.link-red p {
+  color: white;
+  padding-top: 10px;
+}
+.link-blue p {
+  color: white;
+}
+.Table-content-content-white{
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  font-size: 18.1px;
+  background-color: white;
+  align-items: center;
+  padding: 8px 0px 8px 0px;
+  border-top: solid 1px rgb(223, 223, 223);
+}
+

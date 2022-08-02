@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { isTemplateExpression } from 'typescript';
+import React, { useEffect, useState } from 'react';
 import { Currency } from '../../types/currency';
 import { Invoice } from '../../types/invoice';
 import './style.css';
@@ -9,20 +8,20 @@ type Props = {
 
   quantityCost: Currency[];
 
-  setSelectedvalue: (currency: Currency)=> void
+  setSelectedvalue: (currency: Currency) => void;
   //props do customer info
-  setChosseName: (name: string) => void;
-  setChosseWebLink: (webLink: string) => void;
-  setChosseAddress: (address: string) => void;
-  setChosseSecondAddress: (secondAddress: string) => void;
-  setChossePostalCode: (postal: string) => void;
+  setChooseName: (name: string) => void;
+  setChooseWebLink: (webLink: string) => void;
+  setChooseAddress: (address: string) => void;
+  setChooseSecondAddress: (secondAddress: string) => void;
+  setChoosePostalCode: (postal: string) => void;
 
   //props do company info
-  setChosseCompanyName: (name: string) => void;
-  setChosseCompanyWebLink: (webLink: string) => void;
-  setChosseAddressCompany: (address: string) => void;
-  setChosseSecondAddressCompany: (secondAddress: string) => void;
-  setChossePostalCodeCompany: (postal: string) => void;
+  setChooseCompanyName: (name: string) => void;
+  setChooseCompanyWebLink: (webLink: string) => void;
+  setChooseAddressCompany: (address: string) => void;
+  setChooseSecondAddressCompany: (secondAddress: string) => void;
+  setChoosePostalCodeCompany: (postal: string) => void;
 };
 //state padrão customer info
 const Form = (props: Props) => {
@@ -70,33 +69,33 @@ const Form = (props: Props) => {
 
   const handleInputName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChangeName(event.target.value);
-    props.setChosseName(changeName);
+    props.setChooseName(changeName);
   };
 
-  const handleInputChosseWebLInk = (
+  const handleInputChooseWebLInk = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setwebLink(event.target.value);
-    props.setChosseName(webLink);
+    props.setChooseName(webLink);
   };
 
   const handleInputAddress = (event: React.ChangeEvent<HTMLInputElement>) => {
     setfirstAdress(event.target.value);
-    props.setChosseAddress(firstAddress);
+    props.setChooseAddress(firstAddress);
   };
 
   const handleInputSecondAddress = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setsecondAddress(event.target.value);
-    props.setChosseSecondAddress(secondAddress);
+    props.setChooseSecondAddress(secondAddress);
   };
 
   const handleInputPostalCode = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setpostalCode(event.target.value);
-    props.setChossePostalCode(postalCode);
+    props.setChoosePostalCode(postalCode);
   };
 
   //state da props
@@ -107,35 +106,35 @@ const Form = (props: Props) => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setcompanyName(event.target.value);
-    props.setChosseCompanyName(companyName);
+    props.setChooseCompanyName(companyName);
   };
 
   const handleInputWebLinkCompany = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setwebLinkCompany(event.target.value);
-    props.setChosseCompanyWebLink(webLinkCompany);
+    props.setChooseCompanyWebLink(webLinkCompany);
   };
 
   const handleInputAddressCompany = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setfirstAddressCompany(event.target.value);
-    props.setChosseAddressCompany(firstAddressCompany);
+    props.setChooseAddressCompany(firstAddressCompany);
   };
 
   const handleInputSecondAddressCompany = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setsecondAddressCompany(event.target.value);
-    props.setChosseSecondAddressCompany(secondAddressCompany);
+    props.setChooseSecondAddressCompany(secondAddressCompany);
   };
 
   const handleInputCompanyPostalCode = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setpostalCodeCompany(event.target.value);
-    props.setChossePostalCodeCompany(postalCodeCompany);
+    props.setChoosePostalCodeCompany(postalCodeCompany);
   };
 
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(
@@ -153,7 +152,13 @@ const Form = (props: Props) => {
       setSelectedCurrency(currency);
       props.setSelectedvalue(selectedCurrency);
     }
+
+    console.log(selectedCurrency);
   }
+
+  useEffect(() => {
+    setSelectedCurrency(selectedCurrency)
+  }, [selectedCurrency]);
 
   return (
     <div className="main-forms">
@@ -168,7 +173,7 @@ const Form = (props: Props) => {
           />
 
           <input
-            onChange={handleInputChosseWebLInk}
+            onChange={handleInputChooseWebLInk}
             value={webLink}
             type="text"
             name="invoice-input"

@@ -17,15 +17,15 @@ const App = () => {
     invoice.invoiceNumber = invoiceNumber;
   };
 
-  const setChosseName = (name: string) => {
+  const setChooseName = (name: string) => {
     invoice.companyInfo.name = name;
   };
 
-  const setChosseWebLink = (webLink: string) => {
+  const setChooseWebLink = (webLink: string) => {
     invoice.companyInfo.webLink = webLink;
   };
 
-  const setChosseAddress = (address: string) => {
+  const setChooseAddress = (address: string) => {
     invoice.customerInfo.address = address;
   };
 
@@ -33,29 +33,29 @@ const App = () => {
     invoice.customerInfo.secondAddress = secondAddress;
   };
 
-  const setChossePostalCode = (postal: string) => {
+  const setChoosePostalCode = (postal: string) => {
     invoice.customerInfo.postal = postal;
   };
 
   //CompanyInfo------------------------------------
 
-  const setChosseCompanyName = (name: string) => {
+  const setChooseCompanyName = (name: string) => {
     invoice.companyInfo.name = name;
   };
 
-  const setChosseCompanyWebLink = (webLink: string) => {
+  const setChooseCompanyWebLink = (webLink: string) => {
     invoice.companyInfo.webLink = webLink;
   };
 
-  const setChosseAddressCompany = (address: string) => {
+  const setChooseAddressCompany = (address: string) => {
     invoice.companyInfo.address = address;
   };
 
-  const setChosseSecondAddressCompany = (secondAddress: string) => {
+  const setChooseSecondAddressCompany = (secondAddress: string) => {
     invoice.companyInfo.secondAddress = secondAddress;
   };
 
-  const setChossePostalCodeCompany = (postal: string) => {
+  const setChoosePostalCodeCompany = (postal: string) => {
     invoice.companyInfo.postal = postal;
   };
 
@@ -86,6 +86,10 @@ const App = () => {
   };
 
   const currencies: Currency[] = [
+    {
+      name: '',
+      symbol: '',
+    },
     {
       name: 'British Pound (£)',
       symbol: '£'
@@ -119,17 +123,17 @@ const App = () => {
       <Form
         //CustomerInfo------------------------------------
         invoice={invoice}
-        setChosseName={setChosseName}
-        setChosseWebLink={setChosseWebLink}
-        setChosseAddress={setChosseAddress}
-        setChosseSecondAddress={setsecondAddress}
-        setChossePostalCode={setChossePostalCode}
+        setChooseName={setChooseName}
+        setChooseWebLink={setChooseWebLink}
+        setChooseAddress={setChooseAddress}
+        setChooseSecondAddress={setsecondAddress}
+        setChoosePostalCode={setChoosePostalCode}
         //CompanyInfo------------------------------------
-        setChosseCompanyName={setChosseCompanyName}
-        setChosseCompanyWebLink={setChosseCompanyWebLink}
-        setChosseAddressCompany={setChosseAddressCompany}
-        setChosseSecondAddressCompany={setChosseSecondAddressCompany}
-        setChossePostalCodeCompany={setChossePostalCodeCompany}
+        setChooseCompanyName={setChooseCompanyName}
+        setChooseCompanyWebLink={setChooseCompanyWebLink}
+        setChooseAddressCompany={setChooseAddressCompany}
+        setChooseSecondAddressCompany={setChooseSecondAddressCompany}
+        setChoosePostalCodeCompany={setChoosePostalCodeCompany}
         quantityCost={currencies}
         setSelectedvalue={setSelectedCurrency}
       />
