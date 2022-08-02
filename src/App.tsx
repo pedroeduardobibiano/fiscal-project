@@ -1,11 +1,17 @@
+import { useState } from 'react';
 import '../src/App.css';
 import Form from './components/form';
 import Header from './components/header';
-import MethodTitle from './components/methodtitle';
+import Table from './components/table';
 import Title from './components/Title';
+import { Currency } from './types/currency';
 import { Invoice } from './types/invoice';
 
 const App = () => {
+
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>();
+
+
   //CustomerInfo------------------------------------
   const setInvoiceNumber = (invoiceNumber: string) => {
     invoice.invoiceNumber = invoiceNumber;
@@ -45,13 +51,13 @@ const App = () => {
     invoice.companyInfo.address = address;
   };
 
-  const setChosseSecondAddressCompany =(secondAddress:string)=>{
+  const setChosseSecondAddressCompany = (secondAddress: string) => {
     invoice.companyInfo.secondAddress = secondAddress;
-  }
+  };
 
-  const setChossePostalCodeCompany=(postal:string)=>{
+  const setChossePostalCodeCompany = (postal: string) => {
     invoice.companyInfo.postal = postal;
-  }
+  };
 
   const invoice: Invoice = {
     tax: 13,
@@ -79,12 +85,39 @@ const App = () => {
     ],
   };
 
+  const currencies: Currency[] = [
+    {
+      name: 'British Pound (£)',
+      symbol: '£'
+    },
+    {
+      name: 'Canadian Dollar ($)',
+      symbol: 'CAD $ '
+    },
+    {
+      name: 'Euro (€)',
+      symbol: '€'
+    },
+    {
+      name: 'Indian Rupee (₹)',
+      symbol: '₹'
+    },
+    {
+      name: 'Norwegian krone (kr)',
+      symbol: 'kr '
+    },
+    {
+      name: 'US Dollar ($)',
+      symbol: '$'
+    }
+  ];
+
   return (
     <div className="main-content">
       <Header />
       <Title invoice={invoice} setInvoiceNumber={setInvoiceNumber} />
       <Form
-      //CustomerInfo------------------------------------
+        //CustomerInfo------------------------------------
         invoice={invoice}
         setChosseName={setChosseName}
         setChosseWebLink={setChosseWebLink}
@@ -97,8 +130,10 @@ const App = () => {
         setChosseAddressCompany={setChosseAddressCompany}
         setChosseSecondAddressCompany={setChosseSecondAddressCompany}
         setChossePostalCodeCompany={setChossePostalCodeCompany}
+        quantityCost={currencies}
+        setSelectedvalue={setSelectedCurrency}
       />
-      <MethodTitle/>
+      <Table currency={selectedCurrency}/>
     </div>
   );
 };

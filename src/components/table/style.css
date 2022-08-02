@@ -1,0 +1,24 @@
+.Table-content {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  padding-top: 15px;
+  font-size: 18.1px;
+}
+
+.Table-null {
+  width: 8.333333333333332%;
+}
+.Table-description {
+  width: 41.66666666666667%;
+}
+.Table-Quantity {
+  width: 16.666666666666664%;
+}
+.Table-Cost {
+  width: 16.666666666666664%;
+}
+.Table-total {
+  width: 16.666666666666664%;
+  text-align: end;
+}

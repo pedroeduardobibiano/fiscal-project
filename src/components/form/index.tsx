@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { isTemplateExpression } from 'typescript';
+import { Currency } from '../../types/currency';
 import { Invoice } from '../../types/invoice';
 import './style.css';
 
 type Props = {
   invoice: Invoice;
 
+  quantityCost: Currency[];
+
+  setSelectedvalue: (currency: Currency)=> void
   //props do customer info
   setChosseName: (name: string) => void;
   setChosseWebLink: (webLink: string) => void;
@@ -133,6 +138,23 @@ const Form = (props: Props) => {
     props.setChossePostalCodeCompany(postalCodeCompany);
   };
 
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(
+    props.quantityCost[0]
+  );
+
+  async function onSelectedCurrency(
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) {
+    const symbol: string = event.target.value;
+    const currency: Currency | undefined = props.quantityCost.find(
+      (x) => x.symbol === symbol
+    );
+    if (currency) {
+      setSelectedCurrency(currency);
+      props.setSelectedvalue(selectedCurrency);
+    }
+  }
+
   return (
     <div className="main-forms">
       <div className="left-side-forms">
@@ -177,15 +199,12 @@ const Form = (props: Props) => {
             id="invoice-input"
           />
           <div className="select-option">
-            <select 
-            name="select" 
-            id="select">
-              <option label="British Pound (£)" value="">British Pound (£)</option>
-              <option label="Canadian Dollar ($)" value="aa">Canadian Dollar ($)</option>
-              <option label="Euro (€)" value="aa">Euro (€)</option>
-              <option label="Indian Rupee (₹)" value="aa">Indian Rupee (₹)</option>
-              <option label="Norwegian krone (kr)" value="aa">Norwegian krone (kr)</option>
-              <option label="US Dollar ($)" value="aa">US Dollar ($)</option>
+            <select name="select" id="select" onChange={onSelectedCurrency}>
+              {props.quantityCost.map((item, index) => (
+                <option key={index} value={item.symbol}>
+                  {item.name}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -233,7 +252,6 @@ const Form = (props: Props) => {
             id="invoice-input"
           />
         </div>
-        
       </div>
     </div>
   );
