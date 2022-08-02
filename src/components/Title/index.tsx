@@ -34,10 +34,12 @@ const Title = (props: Props) => {
     <div className="page">
       <div className="container">
         <div className="left-side">
-          <div><p>Invoice #</p></div>
+          <div>
+            <p>Invoice #</p>
+          </div>
           <div className="left-input">
             <input
-            autoFocus
+              autoFocus
               onChange={onInputChange}
               value={invoiceText}
               type="text"

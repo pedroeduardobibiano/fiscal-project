@@ -18,11 +18,16 @@
 }
 .Table-Cost {
   width: 16.666666666666664%;
+  font-weight: normal;
 }
 .Table-total {
   width: 16.666666666666664%;
   text-align: end;
   padding-right: 20px;
+  font-weight: normal;
+}
+.tbid {
+  font-weight: bold;
 }
 
 .Table-content-content {
@@ -38,7 +43,6 @@
 
 .input-Table-content {
   width: 8vh;
-  
 }
 
 .Table-link {
@@ -59,6 +63,7 @@
   font-weight: normal;
   background-color: #d9534f;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .link-blue {
@@ -74,6 +79,10 @@
   background-color: #428bca;
   border-radius: 4px;
   padding-top: 9px;
+  cursor: pointer;
+}
+.link-blue:hover {
+  background-color: #357ebd;
 }
 
 .link-red p {
@@ -83,7 +92,7 @@
 .link-blue p {
   color: white;
 }
-.Table-content-content-white{
+.Table-content-content-white {
   display: flex;
   flex-direction: row;
   font-weight: bold;
@@ -94,3 +103,39 @@
   border-top: solid 1px rgb(223, 223, 223);
 }
 
+.subtotal-table {
+  padding: 8px 0px 8px 20px;
+}
+.input-tax {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 0px 8px;
+}
+.tax {
+  margin-top: -2px;
+}
+.button-endpage {
+  padding: 5px 0px 0px 0px;
+}
+.button-final {
+  padding: 8px;
+  margin: 2px;
+  border: transparent;
+  border-radius: 5px;
+  background-color: #428bca;
+  color: white;
+}
+
+.button-final:hover {
+  background-color: #357ebd;
+}
+footer{
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  
+}
+.footerlink{
+  text-decoration: none;
+}

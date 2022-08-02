@@ -157,7 +157,7 @@ const Form = (props: Props) => {
   }
 
   useEffect(() => {
-    setSelectedCurrency(selectedCurrency)
+    setSelectedCurrency(selectedCurrency);
   }, [selectedCurrency]);
 
   return (

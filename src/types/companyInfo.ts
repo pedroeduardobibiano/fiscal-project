@@ -5,4 +5,3 @@ export type CompanyInfo = {
   secondAddress: string;
   postal: string;
 };
-

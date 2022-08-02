@@ -15,19 +15,17 @@
   display: flex;
   flex-direction: column;
 }
-.select-option select{
+.select-option select {
   border-radius: 2px;
 }
 
-
-.left-side-forms-input input{
+.left-side-forms-input input {
   width: 35vh;
   padding-bottom: 6px;
 }
 
-.right-side-forms-input input{
-width: 35vh;
-text-align: right;
-padding-bottom: 6px;
+.right-side-forms-input input {
+  width: 35vh;
+  text-align: right;
+  padding-bottom: 6px;
 }
-

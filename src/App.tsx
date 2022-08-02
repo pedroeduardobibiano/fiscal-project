@@ -8,9 +8,7 @@ import { Currency } from './types/currency';
 import { Invoice } from './types/invoice';
 
 const App = () => {
-
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>();
-
 
   //CustomerInfo------------------------------------
   const setInvoiceNumber = (invoiceNumber: string) => {
@@ -92,28 +90,28 @@ const App = () => {
     },
     {
       name: 'British Pound (£)',
-      symbol: '£'
+      symbol: '£',
     },
     {
       name: 'Canadian Dollar ($)',
-      symbol: 'CAD $ '
+      symbol: 'CAD $ ',
     },
     {
       name: 'Euro (€)',
-      symbol: '€'
+      symbol: '€',
     },
     {
       name: 'Indian Rupee (₹)',
-      symbol: '₹'
+      symbol: '₹',
     },
     {
       name: 'Norwegian krone (kr)',
-      symbol: 'kr '
+      symbol: 'kr ',
     },
     {
       name: 'US Dollar ($)',
-      symbol: '$'
-    }
+      symbol: '$',
+    },
   ];
 
   return (
@@ -137,7 +135,7 @@ const App = () => {
         quantityCost={currencies}
         setSelectedvalue={setSelectedCurrency}
       />
-      <Table currency={selectedCurrency}/>
+      <Table currency={selectedCurrency} />
     </div>
   );
 };
