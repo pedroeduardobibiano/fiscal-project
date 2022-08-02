@@ -10,7 +10,8 @@
 }
 input {
   outline: none;
-  border: transparent;
+  border: solid 1px transparent;
+  padding: 2px;
 }
 
 input:focus {

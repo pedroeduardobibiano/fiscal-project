@@ -5,14 +5,56 @@ import Title from './components/Title';
 import { Invoice } from './types/invoice';
 
 const App = () => {
+  //CustomerInfo------------------------------------
   const setInvoiceNumber = (invoiceNumber: string) => {
     invoice.invoiceNumber = invoiceNumber;
   };
 
+  const setChosseName = (name: string) => {
+    invoice.companyInfo.name = name;
+  };
+
+  const setChosseWebLink = (webLink: string) => {
+    invoice.companyInfo.webLink = webLink;
+  };
+
+  const setChosseAddress = (address: string) => {
+    invoice.customerInfo.address = address;
+  };
+
+  const setsecondAddress = (secondAddress: string) => {
+    invoice.customerInfo.secondAddress = secondAddress;
+  };
+
+  const setChossePostalCode = (postal: string) => {
+    invoice.customerInfo.postal = postal;
+  };
+
+  //CompanyInfo------------------------------------
+
+  const setChosseCompanyName = (name: string) => {
+    invoice.companyInfo.name = name;
+  };
+
+  const setChosseCompanyWebLink = (webLink: string) => {
+    invoice.companyInfo.webLink = webLink;
+  };
+
+  const setChosseAddressCompany = (address: string) => {
+    invoice.companyInfo.address = address;
+  };
+
+  const setChosseSecondAddressCompany =(secondAddress:string)=>{
+    invoice.companyInfo.secondAddress = secondAddress;
+  }
+
+  const setChossePostalCodeCompany=(postal:string)=>{
+    invoice.companyInfo.postal = postal;
+  }
 
   const invoice: Invoice = {
     tax: 13,
-    invoiceNumber: '10',
+    invoiceNumber: '',
     customerInfo: {
       name: 'Mr. John Doe',
       webLink: 'John Doe Designs Inc.',
@@ -40,7 +82,21 @@ const App = () => {
     <div className="main-content">
       <Header />
       <Title invoice={invoice} setInvoiceNumber={setInvoiceNumber} />
-      <Form invoice={invoice} setInvoiceNumber={setInvoiceNumber}/>
+      <Form
+      //CustomerInfo------------------------------------
+        invoice={invoice}
+        setChosseName={setChosseName}
+        setChosseWebLink={setChosseWebLink}
+        setChosseAddress={setChosseAddress}
+        setChosseSecondAddress={setsecondAddress}
+        setChossePostalCode={setChossePostalCode}
+        //CompanyInfo------------------------------------
+        setChosseCompanyName={setChosseCompanyName}
+        setChosseCompanyWebLink={setChosseCompanyWebLink}
+        setChosseAddressCompany={setChosseAddressCompany}
+        setChosseSecondAddressCompany={setChosseSecondAddressCompany}
+        setChossePostalCodeCompany={setChossePostalCodeCompany}
+      />
     </div>
   );
 };

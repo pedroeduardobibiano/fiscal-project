@@ -2,8 +2,11 @@
   margin: 0 auto;
   padding-bottom: 25px;
   border-bottom: solid 1px rgb(223, 223, 223);
-
-  padding-bottom: 40px;  
+  padding-bottom: 40px;
+}
+.page p{
+  font-size: 18.5px;
+  margin-top: 1px;
 }
 .container {
   display: flex;
@@ -19,8 +22,8 @@
   font-weight: bold;
 }
 
-.left-side input{
-    font-weight: bold;
+.left-side input {
+  font-weight: bold;
 }
 
 .arquivos {
@@ -34,7 +37,6 @@
   cursor: pointer;
   color: #428bca;
   font-size: 1.1rem;
-  
 }
 
 .click-action:hover {
@@ -44,7 +46,6 @@
 .image-upload {
   display: flex;
   justify-content: end;
-
 }
 img {
   width: 350px;
