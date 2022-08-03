@@ -139,3 +139,8 @@ footer{
 .footerlink{
   text-decoration: none;
 }
+
+button{
+  border-radius: 4px;
+  border: transparent;
+}

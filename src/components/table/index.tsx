@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Currency } from '../../types/currency';
 import './style.css';
 
@@ -6,6 +7,11 @@ type Props = {
 };
 
 const Table = (props: Props) => {
+
+  const [buttonDelete, setbuttonDelete] = useState<boolean>(false);
+
+ 
+
   return (
     <div className="Table-main">
       <div className="Table-content-title">
@@ -15,12 +21,12 @@ const Table = (props: Props) => {
         <div className="Table-Cost tbid">Cost {props.currency?.symbol}</div>
         <div className="Table-total tbid">Total</div>
       </div>
-
-      <div className="Table-content-content">
+      {!buttonDelete && (
+        <div className="Table-content-content">
         <div className="Table-link">
-          <a className="link-red">
-            <p>[X]</p>
-          </a>
+            <button   onClick={(e) => {
+            setbuttonDelete(!buttonDelete);
+          }} className='link-red'><p>[x]</p></button>
         </div>
         <div className="Table-description">
           <input type="text" value="" placeholder="Description" />
@@ -43,12 +49,13 @@ const Table = (props: Props) => {
         </div>
         <div className="Table-total">{props.currency?.symbol}0.00</div>
       </div>
+        )}
+
+      
 
       <div className="Table-content-content-white">
         <div className="Table-link">
-          <a className="link-blue">
-            <p>[+]</p>
-          </a>
+            <button className='link-blue'><p>[+]</p></button>
         </div>
         <div className="Table-Quantity"></div>
       </div>
