@@ -6,9 +6,13 @@ import Table from './components/table';
 import Title from './components/Title';
 import { Currency } from './types/currency';
 import { Invoice } from './types/invoice';
+import { Item } from './types/item';
 
 const App = () => {
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>();
+
+
+  const [ItemDesciprion, setItemDescription] = useState<Item>();
 
   //CustomerInfo------------------------------------
   const setInvoiceNumber = (invoiceNumber: string) => {
@@ -85,10 +89,6 @@ const App = () => {
 
   const currencies: Currency[] = [
     {
-      name: '',
-      symbol: '',
-    },
-    {
       name: 'British Pound (£)',
       symbol: '£',
     },
@@ -135,7 +135,9 @@ const App = () => {
         quantityCost={currencies}
         setSelectedvalue={setSelectedCurrency}
       />
-      <Table currency={selectedCurrency} />
+      <Table currency={selectedCurrency}
+      setDescription={setItemDescription}
+      item={ItemDesciprion} ItemDescription={[]}/>
     </div>
   );
 };

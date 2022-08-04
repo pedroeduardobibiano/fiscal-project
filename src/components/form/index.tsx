@@ -136,7 +136,9 @@ const Form = (props: Props) => {
     setpostalCodeCompany(event.target.value);
     props.setChoosePostalCodeCompany(postalCodeCompany);
   };
-
+//  const [postalCodeCompany, setpostalCodeCompany] = useState<string>(
+  //props.invoice.companyInfo.postal
+  //);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(
     props.quantityCost[0]
   );
@@ -156,10 +158,7 @@ const Form = (props: Props) => {
     console.log(selectedCurrency);
   }
 
-  useEffect(() => {
-    setSelectedCurrency(selectedCurrency);
-  }, [selectedCurrency]);
-
+ 
   return (
     <div className="main-forms">
       <div className="left-side-forms">
